@@ -1,7 +1,6 @@
 import { ITarefas } from "../../types/tarefa";
 import style from "./Lista.module.scss"
 import Item from "./item";
-import { Interface } from "readline";
 
 
 function Lista({tarefas}:{tarefas: ITarefas[] }){
@@ -14,6 +13,9 @@ function Lista({tarefas}:{tarefas: ITarefas[] }){
                         key={index}
                         tarefa={item.tarefa}
                         tempo={item.tempo}
+                        selecionado={item.selecionado}
+                        completado={item.completado}
+                        id={item.id}
                         // ou pode ser usado{...item}
                     />
                 ))}
