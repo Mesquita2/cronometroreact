@@ -15,8 +15,7 @@ function Lista({tarefas}:{tarefas: ITarefas[] }){
                         tempo={item.tempo}
                         selecionado={item.selecionado}
                         completado={item.completado}
-                        id={item.id}
-                        // ou pode ser usado{...item}
+                        id={item.id}     
                     />
                 ))}
             </ul>
