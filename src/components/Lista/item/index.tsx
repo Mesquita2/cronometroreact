@@ -1,16 +1,24 @@
 import React from "react";
-import style from "../Lista.module.scss"
+import style from "./Item.module.scss"
 import { ITarefas } from "../../../types/tarefa";
 
-interface ItemProps extends ITarefas{
-    tarefa: string
-    tempo: string
+interface Props extends ITarefas{
+    selecionaTarefa: (tarefaSelecionada: ITarefas) => void
 }
 
-const Item: React.FC<ITarefas> = ({ tarefa, tempo, selecionado, completado, id}: ITarefas) => {
-    console.log('item atual', { tarefa, tempo, selecionado, completado, id});
+const Item: React.FC<Props> = ({ tarefa, tempo, selecionado, completado, id, selecionaTarefa}: Props) => {
     return(
-        <li className={style.item}>
+        <li className={`${style.item} ${selecionado ? style.itemSelecionado : ''}`} 
+            onClick={()=> selecionaTarefa(
+                {
+                    tarefa, 
+                    tempo,
+                    selecionado,
+                    completado,
+                    id
+                }
+            )}
+        >
             <h3>{tarefa}</h3>
             <span>{tempo}</span>
         </li>
